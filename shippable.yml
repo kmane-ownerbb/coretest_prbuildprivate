@@ -1,18 +1,23 @@
-language: php
+language: python
 
-php: 
-  - 5.5
-
+python:
+ # - 2.6
+ # - 3.3
+  - 3.5
+  #- pypy3
+  
 git:
-   submodules: false
-   
-build:  
-  
+  submodules: false
+
+build:
+
   ci:
-  
+    - pip install -r requirements.txt
+    - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
-    - mkdir -p shippable/testresults   
-    - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/calculator_test.php  
+    - which python
+    - coverage run `which nosetests` test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
+    - coverage xml -o shippable/codecoverage/coverage.xml
 
 integrations:
   notifications:  
@@ -21,6 +26,11 @@ integrations:
       recipients: 
         - shiptest.rc.me@gmail.com
         - shiptest.rc.ow@gmail.com
+      sendConsoleLogs : true
+      sendCoverageReports : true
+      on_success: always
+      on_failure: always
+      on_pull_request: always
       
     - integrationName: notify-slack 
       type: slack
@@ -28,11 +38,17 @@ integrations:
         - "#random" 
         - "#rc-public" 
         - "#rc-private"
+      on_success: always
+      on_failure: always
+      on_pull_request: always
       
     - integrationName: irc    
       type: irc
       recipients:
         - "chat.freenode.net#test-rc"
+      on_success: always
+      on_failure: always
+      on_pull_request: always
       
     - integrationName: notify-hipchat
       type: hipchat
@@ -41,6 +57,6 @@ integrations:
         - '#rc-public'
         - '@shiptestrcow'
         - '@shiptest'
-        
-        
-        
+      on_success: always
+      on_failure: always
+      on_pull_request: always        
