@@ -18,6 +18,12 @@ build:
     - which python
     - coverage run `which nosetests` test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
     - coverage xml -o shippable/codecoverage/coverage.xml
+    - echo JobId=$JOB_ID
+    - echo JobTriggerByName="$JOB_TRIGGERED_BY_NAME"
+    - echo JobTriggerById="$JOB_TRIGGERED_BY_ID" 
+    - echo PULL_REQUEST_REPO_FULL_NAME="$PULL_REQUEST_REPO_FULL_NAME"
+    - export PULL_REQUEST_IS_FORK=$(eval echo "$"$PULL_REQUEST_REPO_FULL_NAME"_IS_FORK")
+    - echo PULL_REQUEST_IS_FORK=$PULL_REQUEST_IS_FORK
 
 integrations:
   notifications:  
