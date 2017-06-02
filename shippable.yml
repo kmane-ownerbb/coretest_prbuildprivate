@@ -37,6 +37,7 @@ integrations:
       on_success: always
       on_failure: always
       on_pull_request: always
+      on_cancel: always
       
     - integrationName: notify-slack 
       type: slack
@@ -47,6 +48,7 @@ integrations:
       on_success: always
       on_failure: always
       on_pull_request: always
+      on_cancel: always
       
     - integrationName: irc    
       type: irc
@@ -55,6 +57,7 @@ integrations:
       on_success: always
       on_failure: always
       on_pull_request: always
+      on_cancel: always
       
     - integrationName: notify-hipchat
       type: hipchat
@@ -65,4 +68,5 @@ integrations:
         - '@shiptest'
       on_success: always
       on_failure: always
-      on_pull_request: always        
+      on_pull_request: always  
+      on_cancel: always
