@@ -4,7 +4,7 @@
 echo '--->Hello scriptprivate project' 
 
 #sleep 1m  
-echo ' ---> one'
+echo ' ---> one from member to owner for master'
 export IMG_RES="image"
 export REPO_RES="privategitrepo"
 
