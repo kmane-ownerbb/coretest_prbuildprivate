@@ -54,6 +54,7 @@ integrations:
       type: irc
       recipients:
         - "chat.freenode.net#test-rc"
+        - "webchat.irchighway.net#irc-three"
       on_success: always
       on_failure: always
       on_pull_request: always
