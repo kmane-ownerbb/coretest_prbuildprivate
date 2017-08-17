@@ -1,9 +1,7 @@
 language: python
 
 python:
- # - 2.6
-  - 3.3
- # - 3.5
+  - 3.6
   #- pypy3
   
 git:
@@ -24,6 +22,7 @@ build:
     - echo PULL_REQUEST_REPO_FULL_NAME="$PULL_REQUEST_REPO_FULL_NAME"
     - export PULL_REQUEST_IS_FORK=$(eval echo "$"$PULL_REQUEST_REPO_FULL_NAME"_IS_FORK")
     - echo PULL_REQUEST_IS_FORK=$PULL_REQUEST_IS_FORK
+    - echo "END OF CI"
 
 integrations:
   notifications:  
@@ -54,6 +53,7 @@ integrations:
       type: irc
       recipients:
         - "chat.freenode.net#test-rc"
+        - "webchat.irchighway.net#irc-three"
       on_success: always
       on_failure: always
       on_pull_request: always
@@ -70,3 +70,4 @@ integrations:
       on_failure: always
       on_pull_request: always  
       on_cancel: always
+   
