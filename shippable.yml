@@ -1,8 +1,8 @@
 language: python
 
 python:
-  - 3.6
-  #- pypy3
+  #- 3.6
+  - pypy3
   
 git:
   submodules: false
