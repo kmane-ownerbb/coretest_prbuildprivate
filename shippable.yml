@@ -22,7 +22,7 @@ build:
     - echo PULL_REQUEST_REPO_FULL_NAME="$PULL_REQUEST_REPO_FULL_NAME"
     - export PULL_REQUEST_IS_FORK=$(eval echo "$"$PULL_REQUEST_REPO_FULL_NAME"_IS_FORK")
     - echo PULL_REQUEST_IS_FORK=$PULL_REQUEST_IS_FORK
-    - echo "END OF CI TEST!"
+    - echo "END OF CI TEST!!"
 
 integrations:
   notifications:  
